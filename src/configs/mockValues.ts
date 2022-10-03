@@ -1,4 +1,5 @@
 import { UserDetailsInterface } from "../interfaces/auth.interface";
+import { productCode } from "../interfaces/checkout.interface";
 
 export const currentUsers: UserDetailsInterface[] = [
   {

@@ -4,6 +4,11 @@ import {
   AppContextProviderType,
 } from "../interfaces/app-context.interface";
 import { UserDetailsInterface } from "../interfaces/auth.interface";
+import {
+  ProductInterface,
+  promotionCode,
+  PromotionInterface,
+} from "../interfaces/checkout.interface";
 
 export const AppContext = createContext({} as AppContextInterface);
 

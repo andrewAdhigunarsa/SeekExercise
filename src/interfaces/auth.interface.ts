@@ -1,3 +1,5 @@
+import { productCode } from "./checkout.interface";
+
 export interface UserTokenInterface {
   token?: string;
 }

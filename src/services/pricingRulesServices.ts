@@ -1,31 +1,21 @@
-import {
-  CredentialsInterface,
-  UserTokenInterface,
-} from "../interfaces/auth.interface";
 import { PricingRulesInterface } from "../interfaces/app-context.interface";
+import { mockProducts, mockPromotions } from "../configs/pricingRules";
+import {
+  ProductInterface,
+  promotionCode,
+} from "../interfaces/checkout.interface";
 
-export async function getPricingRules(
-  token: UserTokenInterface
-): Promise<Partial<PricingRulesInterface>> {
-  // TODO: Uncomment and update when required
-  // return fetch(API_URL, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //     'Authorization': 'token'
-  //   },
-  //   body: JSON.stringify(credentials)
-  // })
-  // .then(data => data.json())
-
+export async function getPricingRules(): Promise<
+  Partial<PricingRulesInterface>
+> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log("login success");
+      console.log("retrieved pricing rules");
       resolve({
-        products: [],
-        promotions: [],
+        products: mockProducts,
+        promotions: mockPromotions,
       });
-    }, 2000);
+    }, 1000);
   });
 }
 
@@ -34,17 +24,6 @@ export async function submitOrder(
   cartItems?: ProductInterface[],
   promoCode?: promotionCode
 ): Promise<Partial<PricingRulesInterface>> {
-  // TODO: Uncomment and update when required
-  // return fetch(API_URL, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //     'Authorization': 'token'
-  //   },
-  //   body: JSON.stringify(credentials)
-  // })
-  // .then(data => data.json())
-
   return new Promise((resolve, reject) => {
     if (!username) {
       console.log("invalid username");
@@ -67,6 +46,6 @@ export async function submitOrder(
         products: [],
         promotions: [],
       });
-    }, 2000);
+    }, 1000);
   });
 }

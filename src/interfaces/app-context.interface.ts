@@ -1,5 +1,10 @@
 import { UserDetailsInterface } from "./auth.interface";
 import React from "react";
+import {
+  ProductInterface,
+  promotionCode,
+  PromotionInterface,
+} from "./checkout.interface";
 
 export type AppContextProviderType = {
   children: React.ReactNode;
@@ -25,11 +30,9 @@ export interface UserInterface {
 
 export interface CheckoutInterface {
   promoCode?: promotionCode;
-  setPromoCode?: React.Dispatch<
-    React.SetStateAction<promotionCode | undefined>
-  >;
+  setPromoCode: React.Dispatch<React.SetStateAction<promotionCode | undefined>>;
   cartItems?: ProductInterface[];
-  setCartItems?: React.Dispatch<
+  setCartItems: React.Dispatch<
     React.SetStateAction<ProductInterface[] | undefined>
   >;
 }

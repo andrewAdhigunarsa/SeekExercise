@@ -1,11 +1,11 @@
-enum promotionCode {
+export enum promotionCode {
   THREE4TWOCLASSIC = "threefortwoclassic",
   REDUCEDSTANDOUT = "reducedstandout",
-  FIVE4FOURSTANDOUT = 'fiveforfourstandout',
-  REDUCEDPREMIUM = 'reducedpremium'
+  FIVE4FOURSTANDOUT = "fiveforfourstandout",
+  REDUCEDPREMIUM = "reducedpremium",
 }
 
-interface PromotionInterface {
+export interface PromotionInterface {
   promotionId: string;
   promoCode: promotionCode;
   title: string;
@@ -14,13 +14,13 @@ interface PromotionInterface {
   rules: (selectedProducts: ProductInterface[]) => ProductInterface[];
 }
 
-enum productCode {
+export enum productCode {
   classic = "classic",
   standOut = "standOut",
   premium = "premium",
 }
 
-interface ProductInterface {
+export interface ProductInterface {
   productCode: productCode;
   name: string;
   description: string;

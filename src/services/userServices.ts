@@ -4,16 +4,6 @@ import { currentUsers, tokens } from "../configs/mockValues";
 export async function getUserDetails(
   token?: string
 ): Promise<UserDetailsInterface> {
-  // TODO: Uncomment and update when required
-  // return fetch(API_URL, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(credentials)
-  // })
-  // .then(data => data.json())
-
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (token) {
@@ -28,6 +18,6 @@ export async function getUserDetails(
         console.log("failed to retrieve user details");
         reject("failed to retrieve user details");
       }
-    }, 2000);
+    }, 1000);
   });
 }
