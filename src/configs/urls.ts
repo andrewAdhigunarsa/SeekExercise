@@ -1,5 +1,6 @@
 const URLS = {
-  dashboard: '/dashboard',
+  dashboard: "/dashboard",
+  checkout: "/checkout",
 };
 
 export { URLS };

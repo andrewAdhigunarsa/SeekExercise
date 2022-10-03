@@ -1,12 +1,15 @@
 import {
   CredentialsInterface,
+  UserDetailsInterface,
   UserTokenInterface,
 } from "../interfaces/auth.interface";
+import { userExist } from "../utils/mockUtil";
+import { currentUsers, tokens } from "../configs/mockValues";
 
 export async function loginUser(
   credentials: CredentialsInterface
 ): Promise<UserTokenInterface> {
-  // This is to mock
+  // TODO: Uncomment and update when required
   // return fetch(API_URL, {
   //   method: 'POST',
   //   headers: {
@@ -16,12 +19,21 @@ export async function loginUser(
   // })
   // .then(data => data.json())
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log("login success");
-      resolve({
-        token: "wewerwe112312r",
-      });
+      if (userExist(credentials?.username)) {
+        console.log("login success");
+        const token = tokens.filter(
+          (v) => v.username === credentials?.username
+        )[0].token;
+        resolve({
+          token,
+        });
+      } else {
+        alert("login fail, invalid credentials");
+        console.log("login fail");
+        reject("invalid credentials");
+      }
     }, 2000);
   });
 }

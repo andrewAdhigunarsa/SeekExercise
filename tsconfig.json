@@ -16,11 +16,17 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "isolatedModules": false, //TODO: Revert to true after development
+    "noEmit": false,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+    }
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

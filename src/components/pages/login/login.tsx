@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { UserToken } from '../../../hooks/useToken';
-import { loginUser } from '../../../services/auth';
+import React, { useState } from "react";
+import { loginUser } from "../../../services/authServices";
+import { UserTokenInterface } from "../../../interfaces/auth.interface";
+import { Button, Container, Grid, TextField } from "@mui/material";
 
 interface Props {
-  setToken: (token: UserToken) => void;
+  setToken: (token: UserTokenInterface) => void;
 }
 
 export default function Login({ setToken }: Props) {
@@ -20,21 +21,40 @@ export default function Login({ setToken }: Props) {
   };
 
   return (
-    <div className='login-wrapper'>
+    <Container component="main" maxWidth="xs">
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type='text' onChange={(e) => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type='password' onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <div>
-          <button type='submit'>Submit</button>
-        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <TextField
+              label={"Username"}
+              variant={"outlined"}
+              type="text"
+              size={"small"}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label={"Password"}
+              variant={"outlined"}
+              type="password"
+              size={"small"}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              type="submit"
+              variant={"contained"}
+              size={"small"}
+              color={"primary"}
+            >
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
       </form>
-    </div>
+    </Container>
   );
 }
