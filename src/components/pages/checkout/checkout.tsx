@@ -67,7 +67,7 @@ export default function Checkout() {
       cartItems,
       promoCode
     );
-    console.log(`order ${orderId} successfully created`)
+    console.log(`order ${orderId} successfully created`);
   };
 
   useEffect(() => {

@@ -2,7 +2,8 @@ import { PricingRulesInterface } from "../interfaces/app-context.interface";
 import { mockProducts, mockPromotions } from "../configs/pricingRules";
 import {
   ProductInterface,
-  promotionCode, SubmitOrderInterface,
+  promotionCode,
+  SubmitOrderInterface,
 } from "../interfaces/checkout.interface";
 
 export async function getPricingRules(): Promise<
@@ -43,7 +44,7 @@ export async function submitOrder(
         }
       }
       resolve({
-        orderId: 'bhp123'
+        orderId: "bhp123",
       });
     }, 1000);
   });

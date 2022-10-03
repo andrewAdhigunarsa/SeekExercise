@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import { CheckoutInterface } from "../../../../interfaces/app-context.interface";
 import { PromotionInterface } from "../../../../interfaces/checkout.interface";
 import { applyPromoRules, convertToCurrency } from "../../../../utils/utils";
@@ -27,7 +23,9 @@ export default function Summary({ checkout, promotions }: Props) {
       </Typography>
     );
   });
-  const total = appliedCartItems.map(v=>v.retailPrice).reduce((a,b)=>a+b)
+  const total = appliedCartItems
+    .map((v) => v.retailPrice)
+    .reduce((a, b) => a + b);
   return (
     <Card sx={{ minWidth: 275, textAlign: "left" }}>
       <CardContent>
@@ -40,7 +38,7 @@ export default function Summary({ checkout, promotions }: Props) {
           Summary
         </Typography>
         {renderItems}
-        <Typography sx={{fontWeight: 'bold'}} variant="body2">
+        <Typography sx={{ fontWeight: "bold" }} variant="body2">
           total: {convertToCurrency(total)}
         </Typography>
       </CardContent>
