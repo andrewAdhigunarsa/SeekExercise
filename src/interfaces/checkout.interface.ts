@@ -26,3 +26,7 @@ export interface ProductInterface {
   description: string;
   retailPrice: number;
 }
+
+export interface SubmitOrderInterface {
+  orderId?: string;
+}

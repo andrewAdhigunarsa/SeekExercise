@@ -2,18 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../context/app-context";
 import { Button, Container, Grid } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { getUserDetails } from "../../../services/userServices";
-import useToken from "../../../hooks/useToken";
 import {
   productCode,
   ProductInterface,
 } from "../../../interfaces/checkout.interface";
-import { getPricingRules } from "../../../services/pricingRulesServices";
 import { URLS } from "../../../configs/urls";
 import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
-  const { token } = useToken();
   const navigate = useNavigate();
   const { user, pricingRules } = useContext(AppContext);
   const { userDetails } = user;
@@ -36,7 +32,7 @@ export default function Dashboard() {
         userDetails?.products
           ? userDetails?.products.map((code: productCode, index) => {
               const product = pricingRules.products?.filter(
-                (p) => p.productCode == code
+                (p) => p.productCode === code
               )[0];
               return {
                 id: index,
@@ -47,7 +43,7 @@ export default function Dashboard() {
           : [];
       setRows(productRows);
     }
-  }, [userDetails]);
+  }, [userDetails, pricingRules.products, user.userDetails]);
 
   if (!user.userDetails) {
     return <h2>Loading...</h2>;

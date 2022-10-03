@@ -62,18 +62,19 @@ export default function Checkout() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const token = await submitOrder(
+    const orderId = await submitOrder(
       userDetails?.username,
       cartItems,
       promoCode
     );
+    console.log(`order ${orderId} successfully created`)
   };
 
   useEffect(() => {
     if (!token) {
       navigate("/");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   const renderCartItems = applyPromoRules(cartItems ?? [], promotions)?.map(
     (items, index) => {

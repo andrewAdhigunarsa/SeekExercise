@@ -1,12 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
-  Box,
-  Button,
   Card,
-  CardActions,
   CardContent,
-  Container,
-  Grid,
   Typography,
 } from "@mui/material";
 import { CheckoutInterface } from "../../../../interfaces/app-context.interface";
@@ -19,7 +14,7 @@ interface Props {
 }
 
 export default function Summary({ checkout, promotions }: Props) {
-  const { cartItems, promoCode } = checkout;
+  const { cartItems } = checkout;
   const appliedCartItems = applyPromoRules(cartItems ?? [], promotions);
   const renderItems = appliedCartItems?.map((item, index) => {
     return (

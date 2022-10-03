@@ -2,7 +2,7 @@ import { PricingRulesInterface } from "../interfaces/app-context.interface";
 import { mockProducts, mockPromotions } from "../configs/pricingRules";
 import {
   ProductInterface,
-  promotionCode,
+  promotionCode, SubmitOrderInterface,
 } from "../interfaces/checkout.interface";
 
 export async function getPricingRules(): Promise<
@@ -23,7 +23,7 @@ export async function submitOrder(
   username?: string,
   cartItems?: ProductInterface[],
   promoCode?: promotionCode
-): Promise<Partial<PricingRulesInterface>> {
+): Promise<SubmitOrderInterface> {
   return new Promise((resolve, reject) => {
     if (!username) {
       console.log("invalid username");
@@ -43,8 +43,7 @@ export async function submitOrder(
         }
       }
       resolve({
-        products: [],
-        promotions: [],
+        orderId: 'bhp123'
       });
     }, 1000);
   });

@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/pages/dashboard/dashboard";
 import Login from "./components/pages/login/login";
@@ -41,11 +41,9 @@ function App() {
     setUserDetails(undefined);
   };
 
-  useEffect(() => {
-    if (!user.userDetails && token) {
-      getDetails();
-    }
-  }, [user.userDetails, token]);
+  if (!user.userDetails && token) {
+    getDetails();
+  }
 
   if (!token) {
     return <Login setToken={setToken} />;
